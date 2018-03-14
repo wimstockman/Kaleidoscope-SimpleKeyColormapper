@@ -1,10 +1,10 @@
-# keyboardio-simple-keymap-gen
+# keyboardio-SimpleKeyColormapper
 A  simple keymapper layer creator with use of calc sheet
-INSTALL:
+## INSTALL:
 as other Kaleidoscope Plugin
 clone the git 
 into "$(HOME)/Arduino/hardware/keyboardio/avr/libraries/"
-Usage:
+## Usage:
 Open the file keymapper.ods
 the blocks with title " LAYER"
 are for keymapping
