@@ -4,6 +4,7 @@ A  simple keymapper layer creator with use of calc sheet
 as other Kaleidoscope Plugin
 clone the git 
 into "$(HOME)/Arduino/hardware/keyboardio/avr/libraries/"
+replace your Model01-Firmware.ino file usually in $HOME/Arduino/Model01-Firmware/
 ## Usage:
 Open the file keymapper.ods
 the blocks with title " LAYER"
@@ -17,6 +18,8 @@ after you have set all your colors press the "GENERATE COLORCODES
 
 Export the file as csv file
 
-Run generate-ino.sh $HOME/Model01-Firmware/Model01-Firmware.ino
+Run generate-ino.sh $HOME/Arduino/Model01-Firmware/Model01-Firmware.ino
 
-and flash it to your keyboardio
+goto $HOME/Arduino/Model01-Firmware/
+and flash it to your keyboardio command: make flash
+
