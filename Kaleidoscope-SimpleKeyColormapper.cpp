@@ -7,70 +7,70 @@ byte SimpleKeyColormapper_::row = 255, SimpleKeyColormapper_::col = 255;
 bool SimpleKeyColormapper_::cleanupDone = true;
 uint8_t SimpleKeyColormapper_::ActiveLayer;
 
-void  SimpleKeyColormapper_::ledeffectlayer1(uint8_t r,uint8_t c,Key k  ){
+void  SimpleKeyColormapper_::ledeffectlayer1(Key k  ){
 
-if((r==2 && c==14 )  || (r==3 && c==7 )  || (r==3 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(237,28,36));}
-if((r==2 && c==7 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,242,0));}
-if((r==1 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(245,130,32));}
-if((r==0 && c==15 )  || (r==2 && c==9 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,255,255));}
-if((r==0 && c==14 )  || (r==1 && c==15 )  || (r==2 && c==15 )  || (r==3 && c==12 )  || (r==3 && c==13 )  || (r==3 && c==14 )  || (r==3 && c==15 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,251,204));}
-if((r==0 && c==11 )  || (r==0 && c==12 )  || (r==0 && c==13 )  || (r==1 && c==7 )  || (r==1 && c==11 )  || (r==1 && c==12 )  || (r==1 && c==13 )  || (r==2 && c==11 )  || (r==2 && c==12 )  || (r==2 && c==13 )  || (r==3 && c==11 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,166,93));}
-if((r==0 && c==7 )  || (r==0 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,182,189));}
-if((r==3 && c==6 )  || (r==3 && c==9 ) ){::LEDControl.setCrgbAt(r, c, CRGB(57,10,93));}
-if((r==0 && c==6 )  || (r==1 && c==6 )  || (r==1 && c==9 )  || (r==1 && c==14 )  || (r==2 && c==6 )  || (r==2 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(114,191,68));}
+for(int i=0;i<64;i++)
+{
+switch(i/8)
+{
+	case 0: ::LEDControl.setCrgbAt(i, CRGB(160,0,0));
+		break;
+	case 1: ::LEDControl.setCrgbAt(i, CRGB(0,160,0));
+		break;
+	case 2: ::LEDControl.setCrgbAt(i, CRGB(0,70,130));
+		break;
+	case 3: ::LEDControl.setCrgbAt(i, CRGB(130,100,0));
+		break;
+	case 4: ::LEDControl.setCrgbAt(i, CRGB(160,0,0));
+		break;
+	case 5: ::LEDControl.setCrgbAt(i, CRGB(0,160,0));
+		break;
+	case 6: ::LEDControl.setCrgbAt(i, CRGB(0,70,130));
+		break;
+	case 7: ::LEDControl.setCrgbAt(i, CRGB(130,100,0));
+		break;
+}
+}
+
+
+::LEDControl.setCrgbAt(8, CRGB(0,70,130));
+::LEDControl.setCrgbAt(4, CRGB(0,70,130));
+::LEDControl.setCrgbAt(24, CRGB(0,160,0));
+::LEDControl.setCrgbAt(25, CRGB(0,70,130));
+::LEDControl.setCrgbAt(32, CRGB(0,70,130));
+::LEDControl.setCrgbAt(33, CRGB(130,100,0));
+::LEDControl.setCrgbAt(31, CRGB(0,160,0));
+::LEDControl.setCrgbAt(27, CRGB(160,0,0));
+//::LEDControl.setCrgbAt(R2C7, CRGB(0,70,130));
+//::LEDControl.setCrgbAt(R1C1, CRGB(100,70,130));
+//::LEDControl.setCrgbAt(R0C0, CRGB(100,70,130));
+}
+
+void  SimpleKeyColormapper_::ledeffectlayer2(Key k ){
+
 
 }
 
-void  SimpleKeyColormapper_::ledeffectlayer2(uint8_t r,uint8_t c, Key k ){
+void  SimpleKeyColormapper_::ledeffectlayer3(Key k ) {
+}
+void  SimpleKeyColormapper_::ledeffectlayer4(Key k ) {
 
-if((r==3 && c==7 )  || (r==3 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(237,28,36));}
-if((r==1 && c==3 )  || (r==1 && c==5 )  || (r==2 && c==2 )  || (r==2 && c==3 )  || (r==2 && c==4 )  || (r==2 && c==5 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,0,255));}
-if((r==1 && c==11 )  || (r==1 && c==13 )  || (r==2 && c==7 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,242,0));}
-if((r==1 && c==8 )  || (r==1 && c==10 )  || (r==2 && c==10 ) ){::LEDControl.setCrgbAt(r, c, CRGB(245,130,32));}
-if((r==2 && c==9 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,255,255));}
-if((r==1 && c==7 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,166,93));}
-if((r==0 && c==1 )  || (r==0 && c==2 )  || (r==0 && c==3 )  || (r==0 && c==4 )  || (r==0 && c==5 )  || (r==0 && c==6 )  || (r==0 && c==7 )  || (r==0 && c==8 )  || (r==0 && c==10 )  || (r==0 && c==11 )  || (r==0 && c==12 )  || (r==0 && c==13 )  || (r==0 && c==14 )  || (r==0 && c==15 )  || (r==1 && c==1 )  || (r==1 && c==2 )  || (r==1 && c==4 )  || (r==1 && c==6 )  || (r==1 && c==14 )  || (r==1 && c==15 )  || (r==2 && c==1 )  || (r==2 && c==6 )  || (r==2 && c==14 )  || (r==2 && c==15 )  || (r==3 && c==5 )  || (r==3 && c==6 )  || (r==3 && c==9 )  || (r==3 && c==14 )  || (r==3 && c==15 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,182,189));}
-if((r==0 && c==0 )  || (r==0 && c==9 )  || (r==1 && c==0 )  || (r==1 && c==9 )  || (r==2 && c==0 )  || (r==3 && c==0 )  || (r==3 && c==11 )  || (r==3 && c==12 )  || (r==3 && c==13 ) ){::LEDControl.setCrgbAt(r, c, CRGB(200,0,0));}
-if((r==1 && c==12 )  || (r==2 && c==11 )  || (r==2 && c==12 )  || (r==2 && c==13 )  || (r==3 && c==1 )  || (r==3 && c==2 )  || (r==3 && c==3 )  || (r==3 && c==4 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,250,0));}
-if((r==2 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(114,191,68));}
+
+}
+void  SimpleKeyColormapper_::ledeffectlayer5(Key k ) {
+
+}
+void  SimpleKeyColormapper_::ledeffectlayer6(Key k ) {
+
+}
+void  SimpleKeyColormapper_::ledeffectlayer7(Key k ) {
+
+}
+void  SimpleKeyColormapper_::ledeffectlayer8(Key k ) {
 
 }
 
-void  SimpleKeyColormapper_::ledeffectlayer3(uint8_t r,uint8_t c ,Key k ) {
-
-if((r==3 && c==7 )  || (r==3 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(237,28,36));}
-if((r==1 && c==3 )  || (r==1 && c==5 )  || (r==2 && c==2 )  || (r==2 && c==3 )  || (r==2 && c==4 )  || (r==2 && c==5 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,0,255));}
-if((r==1 && c==12 )  || (r==2 && c==7 )  || (r==2 && c==11 )  || (r==2 && c==12 )  || (r==2 && c==13 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,242,0));}
-if((r==1 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(245,130,32));}
-if((r==2 && c==9 ) ){::LEDControl.setCrgbAt(r, c, CRGB(255,255,255));}
-if((r==1 && c==7 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,166,93));}
-if((r==0 && c==1 )  || (r==0 && c==2 )  || (r==0 && c==3 )  || (r==0 && c==4 )  || (r==0 && c==5 )  || (r==0 && c==6 )  || (r==0 && c==7 )  || (r==0 && c==8 )  || (r==0 && c==10 )  || (r==0 && c==11 )  || (r==0 && c==12 )  || (r==0 && c==13 )  || (r==0 && c==14 )  || (r==0 && c==15 )  || (r==1 && c==1 )  || (r==1 && c==2 )  || (r==1 && c==4 )  || (r==1 && c==6 )  || (r==1 && c==11 )  || (r==1 && c==13 )  || (r==1 && c==14 )  || (r==1 && c==15 )  || (r==2 && c==1 )  || (r==2 && c==6 )  || (r==2 && c==14 )  || (r==2 && c==15 )  || (r==3 && c==5 )  || (r==3 && c==6 )  || (r==3 && c==9 )  || (r==3 && c==14 )  || (r==3 && c==15 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,182,189));}
-if((r==0 && c==0 )  || (r==0 && c==9 )  || (r==1 && c==0 )  || (r==1 && c==9 )  || (r==1 && c==10 )  || (r==2 && c==0 )  || (r==3 && c==0 )  || (r==3 && c==11 )  || (r==3 && c==12 )  || (r==3 && c==13 ) ){::LEDControl.setCrgbAt(r, c, CRGB(200,0,0));}
-if((r==3 && c==1 )  || (r==3 && c==2 )  || (r==3 && c==3 )  || (r==3 && c==4 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,250,0));}
-if((r==2 && c==8 ) ){::LEDControl.setCrgbAt(r, c, CRGB(114,191,68));}
-
-}
-
-void  SimpleKeyColormapper_::ledeffectlayer4(uint8_t r,uint8_t c ,Key k ) {
-
-if((r==0 && c==0 )  || (r==0 && c==1 )  || (r==0 && c==2 )  || (r==0 && c==3 )  || (r==0 && c==4 )  || (r==0 && c==5 )  || (r==0 && c==6 )  || (r==0 && c==9 )  || (r==0 && c==10 )  || (r==0 && c==11 )  || (r==0 && c==12 )  || (r==0 && c==13 )  || (r==0 && c==14 )  || (r==1 && c==0 )  || (r==1 && c==1 )  || (r==1 && c==2 )  || (r==1 && c==3 )  || (r==1 && c==4 )  || (r==1 && c==5 )  || (r==1 && c==6 )  || (r==1 && c==9 )  || (r==1 && c==10 )  || (r==1 && c==11 )  || (r==1 && c==12 )  || (r==1 && c==13 )  || (r==1 && c==14 )  || (r==1 && c==15 )  || (r==2 && c==0 )  || (r==2 && c==1 )  || (r==2 && c==2 )  || (r==2 && c==3 )  || (r==2 && c==4 )  || (r==2 && c==5 )  || (r==2 && c==10 )  || (r==2 && c==11 )  || (r==2 && c==12 )  || (r==2 && c==13 )  || (r==2 && c==14 )  || (r==2 && c==15 )  || (r==3 && c==0 )  || (r==3 && c==1 )  || (r==3 && c==2 )  || (r==3 && c==3 )  || (r==3 && c==4 )  || (r==3 && c==5 )  || (r==3 && c==10 )  || (r==3 && c==11 )  || (r==3 && c==12 )  || (r==3 && c==13 )  || (r==3 && c==14 )  || (r==3 && c==15 ) ){::LEDControl.setCrgbAt(r, c, CRGB(186,19,26));}
-if((r==0 && c==15 )  || (r==2 && c==9 ) ){::LEDControl.setCrgbAt(r, c, CRGB(0,0,0));}
-
-}
-void  SimpleKeyColormapper_::ledeffectlayer5(uint8_t r,uint8_t c ,Key k ) {
-
-}
-void  SimpleKeyColormapper_::ledeffectlayer6(uint8_t r,uint8_t c ,Key k ) {
-
-}
-void  SimpleKeyColormapper_::ledeffectlayer7(uint8_t r,uint8_t c ,Key k ) {
-
-}
-void  SimpleKeyColormapper_::ledeffectlayer8(uint8_t r,uint8_t c ,Key k ) {
-
-}
-
-void  SimpleKeyColormapper_::ledeffectlayer9(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer9(Key k ) {
 
 }
 EventHandlerResult SimpleKeyColormapper_::onSetup(void) {
@@ -91,45 +91,41 @@ EventHandlerResult SimpleKeyColormapper_::afterEachCycle() {
   cleanupDone = false;
   ::LEDControl.set_mode(::LEDControl.get_mode_index());
   Serial.println(ActiveLayer);
-  for (uint8_t r = 0; r < ROWS; r++) {
-    for (uint8_t c = 0; c < COLS; c++) {
-      Key k = Layer.lookupOnActiveLayer(r, c);
-      Key layer_key = Layer.getKey(ActiveLayer, r, c);
+      for(auto key_addr : KeyAddr::all()){
+	Key k = Layer.lookupOnActiveLayer(key_addr);
+      Key layer_key = Layer.getKey(ActiveLayer, key_addr);
 
       if (k == LockLayer(ActiveLayer)) {
-        row  = r;
-        col = c;
       }
 
-      if (k != layer_key)  { ::LEDControl.refreshAt(r, c); }
+      if (k != layer_key)  { ::LEDControl.refreshAt(key_addr); }
 		else {
        		switch(ActiveLayer)
 				{
-			case 1:	ledeffectlayer1(r,c,k);
+			case 1:	ledeffectlayer1(k);
 						break;
-			case 2:	ledeffectlayer2(r,c,k);
+			case 2:	ledeffectlayer2(k);
 						break;
 
-			case 3:	ledeffectlayer3(r,c,k);
+			case 3:	ledeffectlayer3(k);
 						break;
-			case 4:	ledeffectlayer4(r,c,k);
+			case 4:	ledeffectlayer4(k);
 						break;
-			case 5:	ledeffectlayer5(r,c,k);
+			case 5:	ledeffectlayer5(k);
 						break;
-			case 6:	ledeffectlayer6(r,c,k);
+			case 6:	ledeffectlayer6(k);
 						break;
-			case 7:	ledeffectlayer7(r,c,k);
+			case 7:	ledeffectlayer7(k);
 						break;
-			case 8:	ledeffectlayer8(r,c,k);
+			case 8:	ledeffectlayer8(k);
 						break;
-			case 9:	ledeffectlayer9(r,c,k);
+			case 9:	ledeffectlayer9(k);
 						break;
 				}
       		 }
     	}
-  }
+  
 
-  if (row > ROWS || col > COLS)
   return EventHandlerResult::OK;
 
 }
