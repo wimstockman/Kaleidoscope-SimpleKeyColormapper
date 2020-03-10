@@ -10,15 +10,15 @@ class SimpleKeyColormapper_ : public kaleidoscope::Plugin {
   SimpleKeyColormapper_(void) {}
 
 
-  static void ledeffectlayer1(Key k);
-  static void ledeffectlayer2(Key k);
-  static void ledeffectlayer3(Key k);
-  static void ledeffectlayer4(Key k);
-  static void ledeffectlayer5(Key k);
-  static void ledeffectlayer6(Key k);
-  static void ledeffectlayer7(Key k);
-  static void ledeffectlayer8(Key k);
-  static void ledeffectlayer9(Key k);
+  static void ledeffectlayer1();
+  static void ledeffectlayer2();
+  static void ledeffectlayer3();
+  static void ledeffectlayer4();
+  static void ledeffectlayer5();
+  static void ledeffectlayer6();
+  static void ledeffectlayer7();
+  static void ledeffectlayer8();
+  static void ledeffectlayer9();
   EventHandlerResult onSetup(void);
   EventHandlerResult afterEachCycle();
 

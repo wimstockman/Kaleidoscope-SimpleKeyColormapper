@@ -36,7 +36,7 @@ if (layerline>0) {
         lefthalf[name][24]=$4;
         lefthalf[name][25]=$5;
         lefthalf[name][26]=$6;
-        lefthalf[name][27]=$7;                
+        lefthalf[name][27]=$7;
 
         righthalf[name][21]=$12;
         righthalf[name][22]=$13;
@@ -56,7 +56,7 @@ if (layerline>0) {
         lefthalf[name][17]=$3;
         lefthalf[name][18]=$4;
         lefthalf[name][19]=$5;
-        lefthalf[name][20]=$6;        
+        lefthalf[name][20]=$6;
 
         righthalf[name][15]=$13;
         righthalf[name][16]=$14;
@@ -121,7 +121,7 @@ laynames = LAYERNAMES[1];
 for (k = 2; k <= nlayer; ++k) laynames=laynames OFS LAYERNAMES[k];
 
 print "enum {"laynames"}; // layers"
-print "const Key keymaps[][ROWS][COLS] PROGMEM = {"
+print "KEYMAPS("
 for (k = 1; k <= nlayer; ++k) {
     name = LAYERNAMES[k];
     left = lefthalf[name][1];
@@ -134,7 +134,7 @@ for (k = 1; k <= nlayer; ++k) {
     if (k < nlayer) print "("left OFS right"),";
     else print "("left OFS right")";
     }
-print "};"
+print ")"
 
 
 }
