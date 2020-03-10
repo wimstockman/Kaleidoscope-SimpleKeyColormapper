@@ -18,8 +18,9 @@ after you have set all your colors press the "GENERATE COLORCODES
 
 Export the file as csv file
 
-Run generate-ino.sh $HOME/Arduino/Model01-Firmware/Model01-Firmware.ino
+Run generate-ino.sh 
 
-goto $HOME/Arduino/Model01-Firmware/
-and flash it to your keyboardio command: make flash
+cd $HOME/Arduino/Model01-Firmware/
+make
+make flash
 
