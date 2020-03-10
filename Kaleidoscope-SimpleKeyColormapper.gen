@@ -1,101 +1,97 @@
 #include "Kaleidoscope-SimpleKeyColormapper.h"
-#include "LEDUtils.h"
 #include "Kaleidoscope.h"
-#include "layers.h"
+namespace kaleidoscope {
+namespace plugin {
 
-byte SimpleKeyColormapper_::row = 255, SimpleKeyColormapper_::col = 255;
 bool SimpleKeyColormapper_::cleanupDone = true;
 uint8_t SimpleKeyColormapper_::ActiveLayer;
 
-void  SimpleKeyColormapper_::ledeffectlayer1(uint8_t r,uint8_t c,Key k  ){
+void  SimpleKeyColormapper_::ledeffectlayer1(){
 }
-
-void  SimpleKeyColormapper_::ledeffectlayer2(uint8_t r,uint8_t c, Key k ){
+void  SimpleKeyColormapper_::ledeffectlayer2(){
 }
-
-void  SimpleKeyColormapper_::ledeffectlayer3(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer3(){
 }
-
-void  SimpleKeyColormapper_::ledeffectlayer4(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer4(){
 }
-void  SimpleKeyColormapper_::ledeffectlayer5(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer5(){
 }
-void  SimpleKeyColormapper_::ledeffectlayer6(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer6(){
 }
-void  SimpleKeyColormapper_::ledeffectlayer7(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer7(){
 }
-void  SimpleKeyColormapper_::ledeffectlayer8(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer8(){
 }
-
-void  SimpleKeyColormapper_::ledeffectlayer9(uint8_t r,uint8_t c ,Key k ) {
+void  SimpleKeyColormapper_::ledeffectlayer9(){
 }
-void SimpleKeyColormapper_::begin(void) {
-  Kaleidoscope.useLoopHook(loopHook);
+EventHandlerResult SimpleKeyColormapper_::onSetup(void) {
+  return EventHandlerResult::OK;
 }
-void SimpleKeyColormapper_::loopHook(bool postClear) {
-  if (!postClear)
-    return;
+EventHandlerResult SimpleKeyColormapper_::afterEachCycle() {
 
   ActiveLayer =	Layer.top();
    if (ActiveLayer ==0	){
     if (!cleanupDone) {
-      LEDControl.set_mode(LEDControl.get_mode_index());
+      ::LEDControl.set_mode(::LEDControl.get_mode_index());
       cleanupDone = true;
     }
-    return;
+  return EventHandlerResult::OK;
   }
 
 
   cleanupDone = false;
-  LEDControl.set_mode(LEDControl.get_mode_index());
+  ::LEDControl.set_mode(::LEDControl.get_mode_index());
   Serial.println(ActiveLayer);
-  for (uint8_t r = 0; r < ROWS; r++) {
-    for (uint8_t c = 0; c < COLS; c++) {
-      Key k = Layer.lookupOnActiveLayer(r, c);
-      Key layer_key = Layer.getKey(ActiveLayer, r, c);
+      for(auto key_addr : KeyAddr::all()){
+	Key k = Layer.lookupOnActiveLayer(key_addr);
+      Key layer_key = Layer.getKey(ActiveLayer, key_addr);
 
       if (k == LockLayer(ActiveLayer)) {
-        row  = r;
-        col = c;
       }
 
-      if (k != layer_key)  { LEDControl.refreshAt(r, c); }
+      if (k != layer_key)  { ::LEDControl.refreshAt(key_addr); }
 		else {
        		switch(ActiveLayer)
 				{
-			case 1:	ledeffectlayer1(r,c,k);
+			case 1:	ledeffectlayer1();
 						break;
-			case 2:	ledeffectlayer2(r,c,k);
+			case 2:	ledeffectlayer2();
 						break;
 
-			case 3:	ledeffectlayer3(r,c,k);
+			case 3:	ledeffectlayer3();
 						break;
-			case 4:	ledeffectlayer4(r,c,k);
+			case 4:	ledeffectlayer4();
 						break;
-			case 5:	ledeffectlayer5(r,c,k);
+			case 5:	ledeffectlayer5();
 						break;
-			case 6:	ledeffectlayer6(r,c,k);
+			case 6:	ledeffectlayer6();
 						break;
-			case 7:	ledeffectlayer7(r,c,k);
+			case 7:	ledeffectlayer7();
 						break;
-			case 8:	ledeffectlayer8(r,c,k);
+			case 8:	ledeffectlayer8();
 						break;
-			case 9:	ledeffectlayer9(r,c,k);
+			case 9:	ledeffectlayer9();
 						break;
 				}
       		 }
     	}
-  }
+  
 
-  if (row > ROWS || col > COLS)
-    return;
+  return EventHandlerResult::OK;
 
+}
+}
 }
 
 
 
+  kaleidoscope::plugin::SimpleKeyColormapper_ SimpleKeyColormapper;
 
-  SimpleKeyColormapper_ SimpleKeyColormapper;
+
+
+
+
+
 
 
 
