@@ -1,23 +1,23 @@
 BEGIN   {
-        nf=0;            
+        nf=0;
+	# We read in the csv file prepared by the mapper script
         cmd = "awk -f keyboardio-mapper.awk keymapper.csv";
         while ((cmd |& getline line) > 0) {
               nf=nf+1;      
               temp[nf]=line;
-              }       		
-        close(cmd);            
+              }
+        close(cmd);
         skipflag=0;
-        
         }
-{ 
+{
+   #We look for the right position to insert the KEYMAPS
    if($0 ~/layers/ && $0 ~/enum/) {
     for (i = 1; i <= nf; ++i)  print temp[i];
-    skipflag=1;
-    }
+    next;
+	}
+#The rest of the lines are simply copied if you change your "Model1-firmware.gen" file the changes will be kept
    else {
-    if (skipflag==0) print $0;
-    if ($0 ~/};/ && skipflag==1)skipflag=0;              
-    } 
-           
+ 	print $0;
+    	} 
 }
 

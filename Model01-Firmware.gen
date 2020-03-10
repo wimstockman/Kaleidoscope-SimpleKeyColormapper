@@ -17,11 +17,11 @@
 #include "Kaleidoscope.h"
 
 // Support for storing the keymap in EEPROM
-#include "Kaleidoscope-EEPROM-Settings.h"
-#include "Kaleidoscope-EEPROM-Keymap.h"
+//#include "Kaleidoscope-EEPROM-Settings.h"
+//#include "Kaleidoscope-EEPROM-Keymap.h"
 
 // Support for communicating with the host via a simple Serial protocol
-#include "Kaleidoscope-FocusSerial.h"
+//#include "Kaleidoscope-FocusSerial.h"
 
 // Support for keys that move the mouse
 #include "Kaleidoscope-MouseKeys.h"
@@ -32,9 +32,11 @@
 // Support for controlling the keyboard's LEDs
 #include "Kaleidoscope-LEDControl.h"
 
-// Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
-#include "Kaleidoscope-NumPad.h"
+// Support for "SimpleKeyColormapper" mode, which is mostly just the Numpad specific LED mode
 #include "Kaleidoscope-SimpleKeyColormapper.h"
+
+// Support for "Numpad" mode, which is mostly just the Numpad specific LED mode
+//#include "Kaleidoscope-NumPad.h"
 
 // Support for the "Boot greeting" effect, which pulses the 'LED' button for 10s
 // when the keyboard is connected to a computer (or that computer is powered on)
@@ -59,10 +61,10 @@
 #include "Kaleidoscope-LED-AlphaSquare.h"
 
 // Support for shared palettes for other plugins, like Colormap below
-#include "Kaleidoscope-LED-Palette-Theme.h"
+//#include "Kaleidoscope-LED-Palette-Theme.h"
 
 // Support for an LED mode that lets one configure per-layer color maps
-#include "Kaleidoscope-Colormap.h"
+//#include "Kaleidoscope-Colormap.h"
 
 // Support for Keyboardio's internal keyboard testing mode
 #include "Kaleidoscope-HardwareTestMode.h"
@@ -143,18 +145,123 @@ enum { MACRO_VERSION_INFO,
   *
   */
 
-enum {QWERTY,NUMPAD,FUNCTION,BUTTERFLY,CAPSON}; // layers
-const Key keymaps[][ROWS][COLS] PROGMEM = {
-[QWERTY] = KEYMAP_STACKED
-(LockLayer(CAPSON),Key_1,Key_6,Key_2,Key_3,Key_4,Key_5,Key_Backtick,Key_Q,Key_W,Key_E,Key_R,Key_T,Key_Tab,Key_Home,Key_A,Key_S,Key_D,Key_F,Key_G,Key_End,Key_Z,Key_X,Key_C,Key_V,Key_B,Key_Escape,Key_LeftShift,Key_Backspace,Key_LeftAlt,Key_LeftControl,ShiftToLayer(FUNCTION),Key_8,Key_9,Key_0,Key_Minus,Key_7,Key_Equals,LockLayer(NUMPAD),Key_Enter,Key_Y,Key_U,Key_I,Key_O,Key_P,Key_LeftBracket,Key_H,Key_J,Key_K,Key_L,Key_Semicolon,Key_Quote,LockLayer(BUTTERFLY),Key_N,Key_M,Key_Comma,Key_Period,Key_Slash,Key_RightBracket,Key_RightControl,Key_RightAlt,Key_Spacebar,Key_RightShift,ShiftToLayer(FUNCTION)),
-[NUMPAD] = KEYMAP_STACKED
-(___,___,___,___,___,___,Key_5,___,___,___,___,___,___,Key_Tab,___,___,___,___,___,___,___,___,___,___,___,___,Key_Escape,Key_LeftShift,Key_Backspace,Key_LeftAlt,Key_LeftControl,ShiftToLayer(FUNCTION),___,___,Key_Keypad7,Key_Keypad8,Key_Keypad9,Key_2,LockLayer(NUMPAD),Key_Enter,___,Key_Keypad4,Key_Keypad5,Key_Keypad6,Key_KeypadAdd,LSHIFT(Key_LeftBracket),___,Key_Keypad1,Key_Keypad2,Key_Keypad3,Key_KeypadSubtract,Key_Quote,LockLayer(BUTTERFLY),___,Key_Keypad0,Key_KeypadDot,Key_KeypadMultiply,Key_KeypadDivide,Key_Enter,Key_RightControl,Key_RightAlt,Key_Spacebar,Key_RightShift,ShiftToLayer(FUNCTION)),
-[FUNCTION] = KEYMAP_STACKED
-(Key_PageUp,Key_F1,Key_F2,Key_F3,Key_F4,Key_F5,Key_LEDEffectNext,Key_PageDown,Key_mouseWarpEnd,Key_Insert,Key_mouseUp,Key_mouseBtnM,Key_mouseBtnR,Key_mouseWarpNE,LSHIFT(Key_End),Key_mouseWarpNW,Key_mouseL,Key_mouseDn,Key_mouseR,Key_mouseBtnL,LSHIFT(Key_Home),LCTRL(Key_Slash),LCTRL(Key_B),LCTRL(Key_I),LCTRL(Key_Period),Key_mouseWarpSW,Key_mouseWarpSE,Key_LeftShift,Key_Delete,Key_LeftAlt,Key_LeftControl,ShiftToLayer(FUNCTION),Consumer_ScanPreviousTrack,Key_F6,Key_F7,Key_F8,Key_F9,Key_F10,Key_F11,Consumer_PlaySlashPause,Key_PageUp,Key_Home,Key_UpArrow,Key_End,Key_0,Key_F12,Key_PageDown,Key_LeftArrow,Key_DownArrow,Key_RightArrow,Key_3,Key_4,LockLayer(BUTTERFLY),___,Consumer_Mute,Consumer_VolumeDecrement,Consumer_VolumeIncrement,Key_Backslash,Key_Pipe,Key_RightControl,Key_RightAlt,Key_Spacebar,Key_RightShift,ShiftToLayer(FUNCTION)),
-[BUTTERFLY] = KEYMAP_STACKED
-(Key_PageUp,Key_F1,Key_F2,Key_F3,Key_F4,Key_F5,Key_LEDEffectNext,Key_PageDown,Key_mouseWarpEnd,Key_Insert,Key_mouseUp,Key_mouseBtnM,Key_mouseBtnR,Key_mouseWarpNE,LSHIFT(Key_End),Key_mouseWarpNW,Key_mouseL,Key_mouseDn,Key_mouseR,Key_mouseBtnL,LSHIFT(Key_Home),LCTRL(Key_Slash),LCTRL(Key_B),LCTRL(Key_I),LCTRL(Key_Period),Key_mouseWarpSW,Key_mouseWarpSE,Key_LeftShift,Key_Delete,Key_LeftAlt,Key_LeftControl,ShiftToLayer(FUNCTION),Consumer_ScanPreviousTrack,Key_F6,Key_F7,Key_F8,Key_F9,Key_F10,Key_F11,Consumer_PlaySlashPause,Consumer_ScanNextTrack, Key_LeftCurlyBracket,LSHIFT(Key_UpArrow),Key_2,Key_0,Key_F12,___,LSHIFT(Key_LeftArrow),LSHIFT(Key_DownArrow),LSHIFT(Key_RightArrow),Key_3,Key_4,LockLayer(BUTTERFLY),___,Consumer_Mute,Consumer_VolumeDecrement,Consumer_VolumeIncrement,Key_Backslash,Key_Pipe,Key_RightControl,Key_RightAlt,Key_Spacebar,Key_RightShift,ShiftToLayer(FUNCTION)),
-[CAPSON] = KEYMAP_STACKED
-(LockLayer(CAPSON),LSHIFT(Key_1),LSHIFT(Key_6),LSHIFT(Key_2),LSHIFT(Key_3),LSHIFT(Key_4),LSHIFT(Key_5),LSHIFT(Key_Backtick),LSHIFT(Key_Q),LSHIFT(Key_W),LSHIFT(Key_E),LSHIFT(Key_R),LSHIFT(Key_T),LSHIFT(Key_Tab),LSHIFT(Key_End),LSHIFT(Key_A),LSHIFT(Key_S),LSHIFT(Key_D),LSHIFT(Key_F),LSHIFT(Key_G),LSHIFT(Key_Home),LSHIFT(Key_Z),LSHIFT(Key_X),LSHIFT(Key_C),LSHIFT(Key_V),LSHIFT(Key_B),___,___,___,___,___,___,LSHIFT(Key_8),LSHIFT(Key_9),LSHIFT(Key_0),LSHIFT(Key_Minus),LSHIFT(Key_7),LSHIFT(Key_Equals),LockLayer(NUMPAD),Key_Enter,LSHIFT(Key_Y),LSHIFT(Key_U),LSHIFT(Key_I),LSHIFT(Key_O),LSHIFT(Key_P),LSHIFT(Key_LeftBracket),LSHIFT(Key_H),LSHIFT(Key_J),LSHIFT(Key_K),LSHIFT(Key_L),LSHIFT(Key_Semicolon),LSHIFT(Key_Quote),LockLayer(BUTTERFLY),LSHIFT(Key_N),LSHIFT(Key_M),LSHIFT(Key_Comma),LSHIFT(Key_Period),LSHIFT(Key_Slash),LSHIFT(Key_RightBracket),___,___,___,___,___)
+enum { PRIMARY, NUMPAD, FUNCTION }; // layers
+
+
+/* Re-enable astyle's indent enforcement */
+// *INDENT-ON*
+
+/** versionInfoMacro handles the 'firmware version info' macro
+ *  When a key bound to the macro is pressed, this macro
+ *  prints out the firmware build information as virtual keystrokes
+ */
+
+static void versionInfoMacro(uint8_t keyState) {
+  if (keyToggledOn(keyState)) {
+    Macros.type(PSTR("Keyboardio Model 01 - Kaleidoscope "));
+    Macros.type(PSTR(BUILD_INFORMATION));
+  }
+}
+
+/** anyKeyMacro is used to provide the functionality of the 'Any' key.
+ *
+ * When the 'any key' macro is toggled on, a random alphanumeric key is
+ * selected. While the key is held, the function generates a synthetic
+ * keypress event repeating that randomly selected key.
+ *
+ */
+
+static void anyKeyMacro(uint8_t keyState) {
+  static Key lastKey;
+  bool toggledOn = false;
+  if (keyToggledOn(keyState)) {
+    lastKey.setKeyCode(Key_A.getKeyCode() + (uint8_t)(millis() % 36));
+    toggledOn = true;
+  }
+
+  if (keyIsPressed(keyState))
+    Kaleidoscope.hid().keyboard().pressKey(lastKey, toggledOn);
+}
+
+
+/** macroAction dispatches keymap events that are tied to a macro
+    to that macro. It takes two uint8_t parameters.
+
+    The first is the macro being called (the entry in the 'enum' earlier in this file).
+    The second is the state of the keyswitch. You can use the keyswitch state to figure out
+    if the key has just been toggled on, is currently pressed or if it's just been released.
+
+    The 'switch' statement should have a 'case' for each entry of the macro enum.
+    Each 'case' statement should call out to a function to handle the macro in question.
+
+ */
+
+const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
+  switch (macroIndex) {
+
+  case MACRO_VERSION_INFO:
+    versionInfoMacro(keyState);
+    break;
+
+  case MACRO_ANY:
+    anyKeyMacro(keyState);
+    break;
+  }
+  return MACRO_NONE;
+}
+
+
+
+// These 'solid' color effect definitions define a rainbow of
+// LED color modes calibrated to draw 500mA or less on the
+// Keyboardio Model 01.
+
+
+static kaleidoscope::plugin::LEDSolidColor solidRed(160, 0, 0);
+static kaleidoscope::plugin::LEDSolidColor solidOrange(140, 70, 0);
+static kaleidoscope::plugin::LEDSolidColor solidYellow(130, 100, 0);
+static kaleidoscope::plugin::LEDSolidColor solidGreen(0, 160, 0);
+static kaleidoscope::plugin::LEDSolidColor solidBlue(0, 70, 130);
+static kaleidoscope::plugin::LEDSolidColor solidIndigo(0, 0, 170);
+static kaleidoscope::plugin::LEDSolidColor solidViolet(130, 0, 120);
+
+/** toggleLedsOnSuspendResume toggles the LEDs off when the host goes to sleep,
+ * and turns them back on when it wakes up.
+ */
+void toggleLedsOnSuspendResume(kaleidoscope::plugin::HostPowerManagement::Event event) {
+  switch (event) {
+  case kaleidoscope::plugin::HostPowerManagement::Suspend:
+    LEDControl.disable();
+    break;
+  case kaleidoscope::plugin::HostPowerManagement::Resume:
+    LEDControl.enable();
+    break;
+  case kaleidoscope::plugin::HostPowerManagement::Sleep:
+    break;
+  }
+}
+
+/** hostPowerManagementEventHandler dispatches power management events (suspend,
+ * resume, and sleep) to other functions that perform action based on these
+ * events.
+ */
+void hostPowerManagementEventHandler(kaleidoscope::plugin::HostPowerManagement::Event event) {
+  toggleLedsOnSuspendResume(event);
+}
+
+/** This 'enum' is a list of all the magic combos used by the Model 01's
+ * firmware The names aren't particularly important. What is important is that
+ * each is unique.
+ *
+ * These are the names of your magic combos. They will be used by the
+ * `USE_MAGIC_COMBOS` call below.
+ */
+enum {
+  // Toggle between Boot (6-key rollover; for BIOSes and early boot) and NKRO
+  // mode.
+  COMBO_TOGGLE_NKRO_MODE,
+  // Enter test mode
+  COMBO_ENTER_TEST_MODE
 };
 
 /** Wrappers, to be used by MagicCombo. **/
@@ -193,21 +300,21 @@ USE_MAGIC_COMBOS({.action = toggleKeyboardProtocol,
 KALEIDOSCOPE_INIT_PLUGINS(
   // The EEPROMSettings & EEPROMKeymap plugins make it possible to have an
   // editable keymap in EEPROM.
-  EEPROMSettings,
-  EEPROMKeymap,
+  //EEPROMSettings,
+  //EEPROMKeymap,
 
   // Focus allows bi-directional communication with the host, and is the
   // interface through which the keymap in EEPROM can be edited.
-  Focus,
+  //Focus,
 
   // FocusSettingsCommand adds a few Focus commands, intended to aid in
   // changing some settings of the keyboard, such as the default layer (via the
   // `settings.defaultLayer` command)
-  FocusSettingsCommand,
+  //FocusSettingsCommand,
 
   // FocusEEPROMCommand adds a set of Focus commands, which are very helpful in
   // both debugging, and in backing up one's EEPROM contents.
-  FocusEEPROMCommand,
+  //FocusEEPROMCommand,
 
   // The boot greeting effect pulses the LED button for 10 seconds after the
   // keyboard is first connected
@@ -250,14 +357,18 @@ KALEIDOSCOPE_INIT_PLUGINS(
 
   // The LED Palette Theme plugin provides a shared palette for other plugins,
   // like Colormap below
-  LEDPaletteTheme,
+  //LEDPaletteTheme,
 
   // The Colormap effect makes it possible to set up per-layer colormaps
-  ColormapEffect,
+  //ColormapEffect,
 
-  // The numpad plugin is responsible for lighting up the 'numpad' mode
+  // The SimpelKeyColormapper plugin is responsible for lighting up the individual leds under the keys create with this Plugin
+
+  SimpleKeyColormapper,
+
+// The numpad plugin is responsible for lighting up the 'numpad' mode
   // with a custom LED effect
-  NumPad,
+ // NumPad,
 
   // The macros plugin adds support for macros
   Macros,
@@ -291,10 +402,10 @@ void setup() {
 
   // While we hope to improve this in the future, the NumPad plugin
   // needs to be explicitly told which keymap layer is your numpad layer
-  NumPad.numPadLayer = NUMPAD;
+  //NumPad.numPadLayer = NUMPAD;
 
-  // We configure the AlphaSquare effect to use RED letters
-  AlphaSquare.color = CRGB(255, 0, 0);
+  // We configure the AlphaSquare effect to use BLUE letters
+  AlphaSquare.color = CRGB(0, 0, 255);
 
   // We set the brightness of the rainbow effects to 150 (on a scale of 0-255)
   // This draws more than 500mA, but looks much nicer than a dimmer effect
@@ -319,12 +430,12 @@ void setup() {
   // one wants to use these layers, just set the default layer to one in EEPROM,
   // by using the `settings.defaultLayer` Focus command, or by using the
   // `keymap.onlyCustom` command to use EEPROM layers only.
-  EEPROMKeymap.setup(5);
+  //EEPROMKeymap.setup(5);
 
   // We need to tell the Colormap plugin how many layers we want to have custom
   // maps for. To make things simple, we set it to five layers, which is how
   // many editable layers we have (see above).
-  ColormapEffect.max_layers(5);
+  //ColormapEffect.max_layers(5);
 }
 
 /** loop is the second of the standard Arduino sketch functions.
@@ -337,3 +448,4 @@ void setup() {
 void loop() {
   Kaleidoscope.loop();
 }
+
