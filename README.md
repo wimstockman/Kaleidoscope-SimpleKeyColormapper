@@ -1,5 +1,6 @@
 # keyboardio-SimpleKeyColormapper
 A  simple keymapper layer creator with use of calc sheet
+Updated to work with Kaleidoscoop v2
 ## INSTALL:
 as other Kaleidoscope Plugin
 clone the git 
