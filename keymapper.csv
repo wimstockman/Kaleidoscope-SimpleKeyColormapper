@@ -43,7 +43,7 @@ Key_PageUp,Key_F1,Key_F2,Key_F3,Key_F4,Key_F5,Key_LEDEffectNext,,,,,Consumer_Sca
 Key_PageDown,Key_mouseWarpEnd,Key_Insert,Key_mouseUp,Key_mouseBtnM,Key_mouseBtnR,Key_mouseWarpNE,,,,,Consumer_PlaySlashPause,Key_PageUp,Key_Home,Key_UpArrow,Key_End,Key_0,Key_F12
 LSHIFT(Key_End),Key_mouseWarpNW,Key_mouseL,Key_mouseDn,Key_mouseR,Key_mouseBtnL,,,,,,,Key_PageDown,Key_LeftArrow,Key_DownArrow,Key_RightArrow,Key_3,Key_4
 LSHIFT(Key_Home),LCTRL(Key_Slash),LCTRL(Key_B),LCTRL(Key_I),LCTRL(Key_Period),Key_mouseWarpSW,Key_mouseWarpSE,,,,,LockLayer(BUTTERFLY),___,Consumer_Mute,Consumer_VolumeDecrement,Consumer_VolumeIncrement,Key_Backslash,Key_Pipe
-,,,,,Key_LeftShift,Key_Delete,Key_LeftAlt,Key_LeftGui,Key_Menu,Key_RightAlt,Key_Spacebar,Key_RightShift,,,,,
+,,,,,Key_LeftShift,Key_Delete,Key_LeftAlt,Key_LeftGui,Key_PcApplication,Key_RightAlt,Key_Spacebar,Key_RightShift,,,,,
 ,,,,,,ShiftToLayer(FUNCTION),,,,,ShiftToLayer(FUNCTION),,,,,,
 ,,,,,,,,,,,,,,,,,
 COLORMAP,FUNCTION,,,,,,,,,,,,,,,,
