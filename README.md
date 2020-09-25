@@ -4,7 +4,7 @@ Updated to work with Kaleidoscoop v2
 ## INSTALL:
 as other Kaleidoscope Plugin
 clone the git 
-into "$(HOME)/Arduino/hardware/keyboardio/avr/libraries/"
+into "$(HOME)/.arduino15/packages/keyboardio/hardware/avr/1.98.0-beta/libraries/"
 replace your Model01-Firmware.ino file usually in $HOME/Arduino/Model01-Firmware/
 ## Usage:
 Open the file keymapper.ods
