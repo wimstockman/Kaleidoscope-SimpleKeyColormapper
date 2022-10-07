@@ -29,7 +29,7 @@ EventHandlerResult SimpleKeyColormapper_::onSetup(void) {
 }
 EventHandlerResult SimpleKeyColormapper_::afterEachCycle() {
 
-  ActiveLayer =	Layer.top();
+  ActiveLayer =	Layer.mostRecent();
    if (ActiveLayer ==0	){
     if (!cleanupDone) {
       ::LEDControl.set_mode(::LEDControl.get_mode_index());
